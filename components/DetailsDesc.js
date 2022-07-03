@@ -39,6 +39,25 @@ const DetailsDesc = ( {data}) => {
     }}>
     {text}
     {!readMore && '...'}
+
+    <Text style={{
+      fontSize:SIZES.small,
+      fontFamily: FONTS.semiBold,
+      color:COLORS.primary,
+         }}
+         onPress={() => {
+           if(!readMore){
+             setext(data.description);
+             setReadMore(true);
+           }
+           else
+           {
+            setext(data.description.slice(0, 100));
+            setReadMore(false);
+           }
+         }}>
+    {readMore ? 'show less' : "Read More"}
+    </Text>
     </Text>
    
     </View>
